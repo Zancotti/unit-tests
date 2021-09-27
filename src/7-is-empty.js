@@ -1,9 +1,18 @@
 export const isEmpty = (stringArrayOrObject) => {
-  const type = typeof stringArrayOrObject
+  const type = typeof stringArrayOrObject;
 
-  if (type === 'string') {
-    return stringArrayOrObject === ''
+  console.log(type);
+  if (type === "string") {
+    return stringArrayOrObject === "";
   }
 
-  return false
-}
+  if (Array.isArray(stringArrayOrObject)) {
+    return stringArrayOrObject.length === 0;
+  }
+
+  if (type === "object") {
+    return Object.keys(stringArrayOrObject).length === 0;
+  }
+
+  return false;
+};
